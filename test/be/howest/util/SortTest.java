@@ -124,4 +124,39 @@ public class SortTest {
         Sort.exchangeSort(numbers);
         assertArrayEquals(hardSortedNumbers, numbers);
     }
+    
+    /**
+     * BUBBLE SORT
+     */
+    @Test
+    public void bubbleSort_array_remains_null_if_it_was_null() {
+        int[] nullArray = null;
+        Sort.bubbleSort(nullArray);
+        assertNull(nullArray);
+    }
+
+    @Test
+    public void bubbleSort_array_remains_same_if_it_contains_1_number() {
+        int[] singleElementArray = {0};
+        Sort.bubbleSort(singleElementArray);
+        assertArrayEquals(new int[]{0}, singleElementArray);
+    }
+
+    @Test
+    public void bubbleSort_sorts_2_numbers_correctly() {
+        int[] twoNumbers = {2, -5};
+        int[] hardSortedTwoNumbers = {-5, 2};
+        Sort.bubbleSort(twoNumbers);
+        assertArrayEquals(hardSortedTwoNumbers, twoNumbers);
+        Sort.bubbleSort(twoNumbers);
+        assertArrayEquals(hardSortedTwoNumbers, twoNumbers);
+    }
+
+    @Test
+    public void bubbleSort_sorts_12_numbers_correctly() {
+        Sort.bubbleSort(numbers);
+        assertArrayEquals(hardSortedNumbers, numbers);
+        Sort.bubbleSort(numbers);
+        assertArrayEquals(hardSortedNumbers, numbers);
+    }
 }

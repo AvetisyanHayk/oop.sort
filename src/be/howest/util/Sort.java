@@ -40,6 +40,10 @@ public final class Sort {
             }
         }
     }
+    
+    public static void bubbleSort(int[] numbers) {
+        throw new UnsupportedOperationException();
+    }
 
     private static int firstIndexOfSmallestNumber(int[] numbers, int startAtIndex) {
         int refIndex = startAtIndex;
