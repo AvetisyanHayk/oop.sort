@@ -30,7 +30,15 @@ public final class Sort {
     }
 
     public static void exchangeSort(int[] numbers) {
-        throw new UnsupportedOperationException();
+        if (numbers != null && numbers.length > 1) {
+            for (int currentIndex = 0; currentIndex < numbers.length; currentIndex++) {
+                for (int higherIndex = currentIndex + 1; higherIndex < numbers.length; higherIndex++) {
+                    if (numbers[currentIndex] > numbers[higherIndex]) {
+                        exchange(numbers, currentIndex, higherIndex);
+                    }
+                }
+            }
+        }
     }
 
     private static int firstIndexOfSmallestNumber(int[] numbers, int startAtIndex) {
