@@ -12,7 +12,7 @@ public final class Sort {
     public static void insertionSort(int[] numbers) {
         if (numbers != null && numbers.length > 1) {
             for (int currentIndex = 1; currentIndex < numbers.length; currentIndex++) {
-                int refIndex = getRefIndexForInsertionSort(numbers, currentIndex);
+                int refIndex = getLowerIndexOfGreaterOrEqualNumber(numbers, currentIndex);
                 if (refIndex >= 0) {
                     insertInto(numbers, currentIndex, refIndex);
                 }
@@ -20,7 +20,7 @@ public final class Sort {
         }
     }
 
-    private static int getRefIndexForInsertionSort(int[] numbers, int currentIndex) {
+    private static int getLowerIndexOfGreaterOrEqualNumber(int[] numbers, int currentIndex) {
         int refIndex = -1;
         for (int lowerIndex = currentIndex - 1; lowerIndex >= 0; lowerIndex--) {
             if (numbers[currentIndex] <= numbers[lowerIndex]) {
