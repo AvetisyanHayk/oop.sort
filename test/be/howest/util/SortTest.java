@@ -159,4 +159,39 @@ public class SortTest {
         Sort.bubbleSort(numbers);
         assertArrayEquals(hardSortedNumbers, numbers);
     }
+    
+    /**
+     * QUICK SORT
+     */
+    @Test
+    public void quickSort_array_remains_null_if_it_was_null() {
+        int[] nullArray = null;
+        Sort.quickSort(nullArray);
+        assertNull(nullArray);
+    }
+
+    @Test
+    public void quickSort_array_remains_same_if_it_contains_1_number() {
+        int[] singleElementArray = {0};
+        Sort.quickSort(singleElementArray);
+        assertArrayEquals(new int[]{0}, singleElementArray);
+    }
+
+    @Test
+    public void quickSort_sorts_2_numbers_correctly() {
+        int[] twoNumbers = {2, -5};
+        int[] hardSortedTwoNumbers = {-5, 2};
+        Sort.quickSort(twoNumbers);
+        assertArrayEquals(hardSortedTwoNumbers, twoNumbers);
+        Sort.quickSort(twoNumbers);
+        assertArrayEquals(hardSortedTwoNumbers, twoNumbers);
+    }
+
+    @Test
+    public void quickSort_sorts_12_numbers_correctly() {
+        Sort.quickSort(numbers);
+        assertArrayEquals(hardSortedNumbers, numbers);
+        Sort.quickSort(numbers);
+        assertArrayEquals(hardSortedNumbers, numbers);
+    }
 }

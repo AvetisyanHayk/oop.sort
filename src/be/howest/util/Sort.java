@@ -52,6 +52,10 @@ public final class Sort {
             }
         }
     }
+    
+    public static void quickSort(int[] numbers) {
+        throw new UnsupportedOperationException();
+    }
 
     private static int firstIndexOfSmallestNumber(int[] numbers, int startAtIndex) {
         int refIndex = startAtIndex;
