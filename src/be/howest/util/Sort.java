@@ -12,7 +12,7 @@ public final class Sort {
     public static void insertionSort(int[] numbers) {
         if (numbers != null && numbers.length > 1) {
             for (int currentIndex = 1; currentIndex < numbers.length; currentIndex++) {
-                int refIndex = getLowerIndexOfGreaterOrEqualNumber(numbers, currentIndex);
+                int refIndex = lowerIndexOfGreaterThanOrEqualNumber(numbers, currentIndex);
                 if (refIndex >= 0) {
                     insertInto(numbers, currentIndex, refIndex);
                 }
@@ -20,7 +20,30 @@ public final class Sort {
         }
     }
 
-    private static int getLowerIndexOfGreaterOrEqualNumber(int[] numbers, int currentIndex) {
+    public static void selectionSort(int[] numbers) {
+        if (numbers != null && numbers.length > 1) {
+            for (int currentIndex = 0; currentIndex < numbers.length; currentIndex++) {
+                int refIndex = firstIndexOfSmallestNumber(numbers, currentIndex);
+                exchange(numbers, currentIndex, refIndex);
+            }
+        }
+    }
+
+    public static void exchangeSort(int[] numbers) {
+        throw new UnsupportedOperationException();
+    }
+
+    private static int firstIndexOfSmallestNumber(int[] numbers, int startAtIndex) {
+        int refIndex = startAtIndex;
+        for (int i = startAtIndex; i < numbers.length; i++) {
+            if (numbers[refIndex] > numbers[i]) {
+                refIndex = i;
+            }
+        }
+        return refIndex;
+    }
+
+    private static int lowerIndexOfGreaterThanOrEqualNumber(int[] numbers, int currentIndex) {
         int refIndex = -1;
         for (int lowerIndex = currentIndex - 1; lowerIndex >= 0; lowerIndex--) {
             if (numbers[currentIndex] <= numbers[lowerIndex]) {
@@ -39,16 +62,10 @@ public final class Sort {
     }
 
     private static void exchange(int[] numbers, int currentIndex, int refIndex) {
-        int current = numbers[currentIndex];
-        numbers[currentIndex] = numbers[refIndex];
-        numbers[refIndex] = current;
-    }
-
-    public static void selectionSort(int[] numbers) {
-        throw new UnsupportedOperationException();
-    }
-
-    public static void exchangeSort(int[] numbers) {
-        throw new UnsupportedOperationException();
+        if (currentIndex != refIndex) {
+            int current = numbers[currentIndex];
+            numbers[currentIndex] = numbers[refIndex];
+            numbers[refIndex] = current;
+        }
     }
 }
