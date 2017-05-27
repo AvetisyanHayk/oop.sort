@@ -197,7 +197,7 @@ public class SortTest {
     
     @Test
     public void quickSort_sorts_13_numbers_correctly() {
-        int[] thirteenNumbers = {7, 5, 0, -44, 301, 8, 240, 3, 1, 0, 5, -55, -79};;
+        int[] thirteenNumbers = {7, 5, 0, -44, 301, 8, 240, 3, 1, 0, 5, -55, -79};
         int[] hardSortedThirteenNumbers = {-79, -55, -44, 0, 0, 1, 3, 5, 5, 7, 8, 240, 301};
         Sort.quickSort(thirteenNumbers);
         assertArrayEquals(hardSortedThirteenNumbers, thirteenNumbers);
