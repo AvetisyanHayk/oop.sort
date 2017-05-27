@@ -42,7 +42,15 @@ public final class Sort {
     }
     
     public static void bubbleSort(int[] numbers) {
-        throw new UnsupportedOperationException();
+        if (numbers != null && numbers.length > 1) {
+            for (int stopAtIndex = numbers.length - 1; stopAtIndex > 0; stopAtIndex--) {
+                for (int currentIndex = 0; currentIndex < stopAtIndex; currentIndex++) {
+                    if (numbers[currentIndex] > numbers[currentIndex + 1]) {
+                        exchange(numbers, currentIndex, currentIndex + 1);
+                    }
+                }
+            }
+        }
     }
 
     private static int firstIndexOfSmallestNumber(int[] numbers, int startAtIndex) {
