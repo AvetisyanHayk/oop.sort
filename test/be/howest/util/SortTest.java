@@ -124,7 +124,7 @@ public class SortTest {
         assertArrayEquals(hardSortedNumbers, numbers);
     }
     // </editor-fold>
-    
+
     // <editor-fold desc="Bubble Sort" defaultstate="collapsed">
     @Test
     public void bubbleSort_array_remains_null_if_it_was_null() {
@@ -158,49 +158,50 @@ public class SortTest {
         Sort.bubbleSort(numbers);
         assertArrayEquals(hardSortedNumbers, numbers);
     }
-    
-    /**
-     * QUICK SORT
-     */
-//    @Test
-//    public void quickSort_array_remains_null_if_it_was_null() {
-//        int[][] nullArrays = new int[1][1];
-//        Sort.quickSort(nullArrays[0]);
-//        assertNull(nullArrays[0]);
-//    }
-//
-//    @Test
-//    public void quickSort_array_remains_same_if_it_contains_1_number() {
-//        int[] singleElementArray = {0};
-//        Sort.quickSort(singleElementArray);
-//        assertArrayEquals(new int[]{0}, singleElementArray);
-//    }
-//
-//    @Test
-//    public void quickSort_sorts_2_numbers_correctly() {
-//        int[] twoNumbers = {2, -5};
-//        int[] hardSortedTwoNumbers = {-5, 2};
-//        Sort.quickSort(twoNumbers);
-//        assertArrayEquals(hardSortedTwoNumbers, twoNumbers);
-//        Sort.quickSort(twoNumbers);
-//        assertArrayEquals(hardSortedTwoNumbers, twoNumbers);
-//    }
-//
-//    @Test
-//    public void quickSort_sorts_12_numbers_correctly() {
-//        Sort.quickSort(numbers);
-//        assertArrayEquals(hardSortedNumbers, numbers);
-//        Sort.quickSort(numbers);
-//        assertArrayEquals(hardSortedNumbers, numbers);
-//    }
-//    
-//    @Test
-//    public void quickSort_sorts_13_numbers_correctly() {
-//        int[] thirteenNumbers = {7, 5, 0, -44, 301, 8, 240, 3, 1, 0, 5, -55, -79};
-//        int[] hardSortedThirteenNumbers = {-79, -55, -44, 0, 0, 1, 3, 5, 5, 7, 8, 240, 301};
-//        Sort.quickSort(thirteenNumbers);
-//        assertArrayEquals(hardSortedThirteenNumbers, thirteenNumbers);
-//        Sort.quickSort(thirteenNumbers);
-//        assertArrayEquals(hardSortedThirteenNumbers, thirteenNumbers);
-//    }
+    // </editor-fold>
+
+    // <editor-fold desc="Quick Sort" defaultstate="collapsed">
+    @Test
+    public void quickSort_array_remains_null_if_it_was_null() {
+        int[][] nullArrays = new int[1][1];
+        nullArrays[0] = null;
+        Sort.quickSort(nullArrays[0]);
+        assertNull(nullArrays[0]);
+    }
+
+    @Test
+    public void quickSort_array_remains_same_if_it_contains_1_number() {
+        int[] singleElementArray = {0};
+        Sort.quickSort(singleElementArray);
+        assertArrayEquals(new int[]{0}, singleElementArray);
+    }
+
+    @Test
+    public void quickSort_sorts_2_numbers_correctly() {
+        int[] twoNumbers = {2, -5};
+        int[] hardSortedTwoNumbers = {-5, 2};
+        Sort.quickSort(twoNumbers);
+        assertArrayEquals(hardSortedTwoNumbers, twoNumbers);
+        Sort.quickSort(twoNumbers);
+        assertArrayEquals(hardSortedTwoNumbers, twoNumbers);
+    }
+
+    @Test
+    public void quickSort_sorts_12_numbers_correctly() {
+        Sort.quickSort(numbers);
+        assertArrayEquals(hardSortedNumbers, numbers);
+        Sort.quickSort(numbers);
+        assertArrayEquals(hardSortedNumbers, numbers);
+    }
+
+    @Test
+    public void quickSort_sorts_13_numbers_correctly() {
+        int[] thirteenNumbers = {7, 5, 0, -44, 301, 8, 240, 3, 1, 0, 5, -55, -79};
+        int[] hardSortedThirteenNumbers = {-79, -55, -44, 0, 0, 1, 3, 5, 5, 7, 8, 240, 301};
+        Sort.quickSort(thirteenNumbers);
+        assertArrayEquals(hardSortedThirteenNumbers, thirteenNumbers);
+        Sort.quickSort(thirteenNumbers);
+        assertArrayEquals(hardSortedThirteenNumbers, thirteenNumbers);
+    }
+    // </editor-fold>
 }
