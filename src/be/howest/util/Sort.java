@@ -9,10 +9,11 @@ public final class Sort {
     private Sort() {
     }
 
+    // <editor-fold desc="Insertion Sort" defaultstate="collapsed">
     public static void insertionSort(int[] numbers) {
         if (numbers != null && numbers.length > 1) {
             for (int currentIndex = 1; currentIndex < numbers.length; currentIndex++) {
-                int refIndex = lowerIndexOfGreaterThanOrEqualNumber(numbers, currentIndex);
+                int refIndex = lowestIndexOfGreaterThanOrEqualNumber(numbers, currentIndex);
                 if (refIndex >= 0) {
                     insertInto(numbers, currentIndex, refIndex);
                 }
@@ -20,18 +21,51 @@ public final class Sort {
         }
     }
 
+    private static int lowestIndexOfGreaterThanOrEqualNumber(int[] numbers, int currentIndex) {
+        for (int lowerIndex = 0; lowerIndex < currentIndex; lowerIndex++) {
+            if (numbers[currentIndex] <= numbers[lowerIndex]) {
+                return lowerIndex;
+            }
+        }
+        return -1;
+    }
+
+    private static void insertInto(int[] numbers, int currentIndex, int refIndex) {
+        int current = numbers[currentIndex];
+        for (int i = currentIndex; i > refIndex; i--) {
+            swap(numbers, i - 1, i);
+        }
+        numbers[refIndex] = current;
+    }
+    // </editor-fold>
+
+    // <editor-fold desc="Selection Sort" defaultstate="collapsed">
     public static void selectionSort(int[] numbers) {
         if (numbers != null && numbers.length > 1) {
-            for (int currentIndex = 0; currentIndex < numbers.length; currentIndex++) {
-                int refIndex = firstIndexOfSmallestNumber(numbers, currentIndex);
-                swap(numbers, currentIndex, refIndex);
+            for (int currentIndex = 0; currentIndex < numbers.length - 1; currentIndex++) {
+                int refIndex = higherIndexOfSmallestOrEqualNumber(numbers, currentIndex);
+                if (currentIndex != refIndex) {
+                    swap(numbers, currentIndex, refIndex);
+                }
             }
         }
     }
 
+    private static int higherIndexOfSmallestOrEqualNumber(int[] numbers, int startAtIndex) {
+        int refIndex = startAtIndex;
+        for (int i = startAtIndex + 1; i < numbers.length; i++) {
+            if (numbers[i] < numbers[refIndex]) {
+                refIndex = i;
+            }
+        }
+        return refIndex;
+    }
+    // </editor-fold>
+
+    // <editor-fold desc="Exchange Sort" defaultstate="collapsed">
     public static void exchangeSort(int[] numbers) {
         if (numbers != null && numbers.length > 1) {
-            for (int currentIndex = 0; currentIndex < numbers.length; currentIndex++) {
+            for (int currentIndex = 0; currentIndex < numbers.length - 1; currentIndex++) {
                 for (int higherIndex = currentIndex + 1; higherIndex < numbers.length; higherIndex++) {
                     if (numbers[currentIndex] > numbers[higherIndex]) {
                         swap(numbers, currentIndex, higherIndex);
@@ -40,19 +74,26 @@ public final class Sort {
             }
         }
     }
+    // </editor-fold>
 
+    // <editor-fold desc="Bubble Sort" defaultstate="collapsed">
     public static void bubbleSort(int[] numbers) {
         if (numbers != null && numbers.length > 1) {
-            for (int stopAtIndex = numbers.length - 1; stopAtIndex > 0; stopAtIndex--) {
-                for (int currentIndex = 0; currentIndex < stopAtIndex; currentIndex++) {
+            boolean swapped = true;
+            while (swapped) {
+                swapped = false;
+                for (int currentIndex = 0; currentIndex < numbers.length - 1; currentIndex++) {
                     if (numbers[currentIndex] > numbers[currentIndex + 1]) {
                         swap(numbers, currentIndex, currentIndex + 1);
+                        swapped = true;
                     }
                 }
             }
         }
     }
+    // </editor-fold>
 
+    // <editor-fold desc="Quick Sort" defaultstate="collapsed">
     public static void quickSort(int[] numbers) {
         if (numbers != null && numbers.length > 1) {
             quickSort(numbers, 0, numbers.length - 1);
@@ -67,7 +108,7 @@ public final class Sort {
             quickSort(numbers, pivotIndex + 1, stopAtIndex);
         }
     }
-    
+
     private static int orderNumbersTowardsPivotAndReturnPivotIndex(int[] numbers, final int startAtIndex, final int stopAtIndex) {
         int pivot = numbers[stopAtIndex];
         int refIndex = startAtIndex;
@@ -80,36 +121,7 @@ public final class Sort {
         swap(numbers, refIndex, stopAtIndex);
         return refIndex;
     }
-
-    
-
-    private static int firstIndexOfSmallestNumber(int[] numbers, int startAtIndex) {
-        int refIndex = startAtIndex;
-        for (int i = startAtIndex; i < numbers.length; i++) {
-            if (numbers[refIndex] > numbers[i]) {
-                refIndex = i;
-            }
-        }
-        return refIndex;
-    }
-
-    private static int lowerIndexOfGreaterThanOrEqualNumber(int[] numbers, int currentIndex) {
-        int refIndex = -1;
-        for (int lowerIndex = currentIndex - 1; lowerIndex >= 0; lowerIndex--) {
-            if (numbers[currentIndex] <= numbers[lowerIndex]) {
-                refIndex = lowerIndex;
-            }
-        }
-        return refIndex;
-    }
-
-    private static void insertInto(int[] numbers, int currentIndex, int refIndex) {
-        int current = numbers[currentIndex];
-        for (int i = currentIndex; i > refIndex; i--) {
-            swap(numbers, i - 1, i);
-        }
-        numbers[refIndex] = current;
-    }
+    // </editor-fold>
 
     private static void swap(int[] numbers, int currentIndex, int refIndex) {
         if (currentIndex != refIndex) {
