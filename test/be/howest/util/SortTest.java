@@ -25,9 +25,9 @@ public class SortTest {
      */
     @Test
     public void insertionSort_array_remains_null_if_it_was_null() {
-        int[] nullArray = null;
-        Sort.insertionSort(nullArray);
-        assertNull(nullArray);
+        int[][] nullArrays = new int[1][1];
+        Sort.insertionSort(nullArrays[0]);
+        assertNull(nullArrays[0]);
     }
 
     @Test
@@ -60,9 +60,9 @@ public class SortTest {
      */
     @Test
     public void selectionSort_array_remains_null_if_it_was_null() {
-        int[] nullArray = null;
-        Sort.selectionSort(nullArray);
-        assertNull(nullArray);
+        int[][] nullArrays = new int[1][1];
+        Sort.selectionSort(nullArrays[0]);
+        assertNull(nullArrays[0]);
     }
 
     @Test
@@ -95,9 +95,9 @@ public class SortTest {
      */
     @Test
     public void exchangeSort_array_remains_null_if_it_was_null() {
-        int[] nullArray = null;
-        Sort.exchangeSort(nullArray);
-        assertNull(nullArray);
+        int[][] nullArrays = new int[1][1];
+        Sort.exchangeSort(nullArrays[0]);
+        assertNull(nullArrays[0]);
     }
 
     @Test
@@ -130,9 +130,9 @@ public class SortTest {
      */
     @Test
     public void bubbleSort_array_remains_null_if_it_was_null() {
-        int[] nullArray = null;
-        Sort.bubbleSort(nullArray);
-        assertNull(nullArray);
+        int[][] nullArrays = new int[1][1];
+        Sort.bubbleSort(nullArrays[0]);
+        assertNull(nullArrays[0]);
     }
 
     @Test
@@ -165,9 +165,9 @@ public class SortTest {
      */
     @Test
     public void quickSort_array_remains_null_if_it_was_null() {
-        int[] nullArray = null;
-        Sort.quickSort(nullArray);
-        assertNull(nullArray);
+        int[][] nullArrays = new int[1][1];
+        Sort.quickSort(nullArrays[0]);
+        assertNull(nullArrays[0]);
     }
 
     @Test
